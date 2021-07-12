@@ -1,6 +1,6 @@
 <template>
 <div class="main">
-    <Ricerca/>
+    <Ricerca @search="ricercaFilm"/>
 
 </div>
   
@@ -13,6 +13,12 @@ export default {
     name: 'main',
     components: {
        Ricerca
+  },
+  methods :{
+
+      ricercaFilm(trovaFilm){
+        console.log('ciao', trovaFilm);
+      }
   }
 
 }

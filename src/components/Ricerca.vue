@@ -2,11 +2,12 @@
 <form class="container">
 
     <div>
-        <input class=" casella-ricerca" type="text" placeholder="Ricerca film">
+        <input class=" casella-ricerca" type="text" 
+        placeholder="Ricerca film" v-model="inputText" >
     </div>
     <div>
-        <button  type="submit">Search</button>
-        <button  type="reset">Reset</button>
+        <button  type="submit" @click.prevent="$emit('search',inputText)" >Search</button>
+        <button  type="reset" >Reset</button>
     </div>
 
 
@@ -15,7 +16,12 @@
 
 <script>
 export default {
-    name: 'Ricerca'
+    name: 'Ricerca',
+    data(){
+        return{
+            inputText: ''
+        }
+    }
 
 }
 </script>
