@@ -6,7 +6,7 @@
         placeholder="Ricerca film" v-model="inputText" >
     </div>
     <div>
-        <button  type="submit" @click.prevent="$emit('search',inputText)" >Search</button>
+        <button  type="submit" @click.prevent="$emit('search',inputText)"  >Search</button>
         <button  type="reset" >Reset</button>
     </div>
 

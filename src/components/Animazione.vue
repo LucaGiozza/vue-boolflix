@@ -1,10 +1,16 @@
 <template>
   <div>
-    <img  class="fotografie" :src="details.poster" :alt="details.title">
+    <div>
+        <img  class="fotografie" :src="details.poster" :alt="details.title">
     <h3 class="titolo">{{details.title}}</h3>
     <p class="autore">{{details.author}}</p>
 
+    </div>
+   
+  
+
   </div>
+
 </template>
 
 <script>
@@ -15,5 +21,4 @@ props:["details"]
 </script>
 
 <style lang="scss" scoped>
-
-</style>
+</style> 

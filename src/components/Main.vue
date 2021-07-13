@@ -1,9 +1,10 @@
 <template>
 <div class="main">
-    <p>{{campoRicerca}}</p>
-    <Ricerca @search="ricercaFilm"/>
+    <!-- <p>{{campoRicerca}}</p> -->
+    <Ricerca @search="ricercaFilm" />
 
     <ListaFilm v-for="film in filmsArray" :key="film.id" :info="film"/>
+    <ListaSerie v-for="serie in serieTvArray" :key="serie.id" :info="serie"/>
 
 </div>
   
@@ -15,22 +16,30 @@ import axios from 'axios';
 
 import Ricerca from '@/components/Ricerca.vue';
 import ListaFilm from '@/components/ListaFilm.vue';
+import ListaSerie from '@/components/ListaSerie.vue';
 export default {
     name: 'main',
   
    
     components: {
        Ricerca,
-       ListaFilm
+       ListaFilm,
+       ListaSerie
   },
  
   data(){
       return {
           apiUrl:'https://api.themoviedb.org/3/search/movie',
+          apiTvUrl:'https://api.themoviedb.org/3/search/tv',
           apiKey: 'cabe8922195f2ff0cfd386b87a764c5b',
-          listaFilm : '',
-         searchText :'',
-         filmsArray: []
+           listaFilms : '',
+           listaSeries:'',
+          
+           searchText :'',
+           searchTextTv: '',
+         filmsArray: [],
+         serieTvArray: []
+         
       }
       
   },
@@ -41,11 +50,21 @@ export default {
           });
 
           
+      },
+
+      filtroSerie(){
+          return this.listaSeries.filter(element=> {
+               return element.name.includes(this.searchTextTv.toLowerCase())
+
+          });
+         
+
       }
 
 
 
   },
+
   methods :{
 
       ricercaFilm(trovaFilm){
@@ -54,7 +73,8 @@ export default {
               .get(this.apiUrl,{
                   params:{
                       api_key: this.apiKey,
-                      query: trovaFilm
+                      query: trovaFilm,
+                      
                   }
               })
               .then(response => {
@@ -63,7 +83,28 @@ export default {
               });
           
           console.log( this.searchText);
+      },
+
+      ricercaSerie(trovaSerie){
+          this.searchSeries = trovaSerie
+
+          axios
+              .get(this.apiTvUrl,{
+                  params:{
+                      api_key : this.apiKey,
+                      query : trovaSerie
+                  }
+
+              })
+              .then(response =>{
+                  console.log(response.data.results);
+                  this.serieTvArray = response.data.results;
+
+              });
+
+
       }
+      
   }
 
 }
