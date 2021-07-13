@@ -7,7 +7,7 @@
 
     <main>
 
-      <Main/>
+      <Main :films="filmsArray" :campoRicerca="searchText"/>
 
     </main>
     
