@@ -10,12 +10,23 @@
 
     
         
-         <h2 class="titolo">{{info.title}}</h2>
+         <h2 class="titolo"> Title: {{info.title || info.name}}</h2>
     <ul>
-        <li>{{info.original_title}}</li>
-        <!-- <li>{{info.original_language}}</li> -->
-       <img src="https://www.countryflags.io/us/flat/64.png" >
-        <li>{{info.vote_average}}</li>
+        <li> Oiginal title: {{info.original_title|| info.original_name}}</li>
+         <li>{{info.original_language}}</li> 
+         <div class="bandiere" v-if="flags.includes(info.original_language)">
+
+             <img :src="require(`../assets/${info.original_language}.jpg`)" :alt="info.original_language"> 
+             
+         </div>
+         <div class="flags" v-else>
+             {{info.original_language}}
+
+         </div>
+
+          
+        <!-- <img src="https://www.countryflags.io/us/flat/64.png" >  -->
+        <li> Vote: {{info.vote_average}}</li>
     </ul>
 
     
@@ -36,10 +47,16 @@ import Animazione from '@/components/Animazione.vue'
 
 export default {
     name: 'ListaFilm',
-    props: ['info',],
+    props: ['info'],
     components :{
         Animazione
 
+    },
+    data(){
+
+        return{
+            flags:["en", "it", "ja"]
+        }
     }
 }
 //       data(){
@@ -86,6 +103,12 @@ export default {
 <style lang="scss" scoped>
 .titolo{
     margin-top:90px;
+}
+.bandiere img{
+    width:150px;
+}
+.flags{
+    width:150px;
 }
 
 </style>
