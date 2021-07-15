@@ -10,8 +10,17 @@
     <div>
         <h2>Serie tv in lista:</h2>
         <ListaFilm v-for="serieTv in tvArray" :key="serieTv.id" :info="serieTv"/>
+        
 
     </div>
+    <!-- <div>
+        
+        <ListaFilm v-for="serieTv in tvArray" :key="serieTv.id" :info="serieTv"/>
+        
+
+    </div> -->
+   
+   
 
     
     
@@ -42,6 +51,9 @@ export default {
       return {
           apiUrl:'https://api.themoviedb.org/3/search/movie',
           apiTvUrl:'https://api.themoviedb.org/3/search/tv',
+           copertinaApiUrl:'https://image.tmdb.org/t/p/w342/dOsASSkNxUjtEp47eSDNazDPDPa.jpg',
+          
+
           apiKey: 'cabe8922195f2ff0cfd386b87a764c5b',
           language:'it-IT',
         //    listaFilms : '',
@@ -51,6 +63,7 @@ export default {
         //    searchTextTv: '',
            filmsArray: '',
            tvArray: '',
+           copertinaArray : ''
          
       }
       
@@ -88,12 +101,14 @@ export default {
           axios
            .all([
                axios.get(this.apiUrl, request),
-               axios.get(this. apiTvUrl, request)
+               axios.get(this. apiTvUrl, request),
+               axios.get(this.copertinaApiUrl, request)
            ])
 
-           .then(axios.spread((responseFilm, responseTv) => {
+           .then(axios.spread((responseFilm, responseTv, responseCopertina) => {
                this.filmsArray= responseFilm.data.results;
                this.tvArray= responseTv.data.results;
+               this.copertinaArray = responseCopertina.data.results;
             //    console.log(this.tvArray)
 
 

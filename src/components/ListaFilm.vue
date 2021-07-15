@@ -16,6 +16,7 @@
          <li>{{info.original_language}}</li> 
          <div class="bandiere" v-if="flags.includes(info.original_language)">
 
+
              <img :src="require(`../assets/${info.original_language}.jpg`)" :alt="info.original_language"> 
              
          </div>
@@ -23,10 +24,17 @@
              {{info.original_language}}
 
          </div>
+         <li>
+            
+               {{info.poster_path}} 
+        </li>
 
           
         <!-- <img src="https://www.countryflags.io/us/flat/64.png" >  -->
         <li> Vote: {{info.vote_average}}</li>
+    </ul>
+    <ul>
+        
     </ul>
 
     
@@ -43,7 +51,7 @@
 </template>
 
 <script>
-// import axios from 'axios';
+
  import Animazione from '@/components/Animazione.vue'
 
 export default {
@@ -56,9 +64,23 @@ export default {
     data(){
 
         return{
-            flags:["en", "it", "ja"]
+            flags:["en", "it", "ja"],
+             
+
         }
-    }
+    },
+
+
+        // methods: {
+        //     // funzione per impostare un'immagine 
+        //     getImages: function(element) {
+        //         if(element.poster_path != null) {
+        //             return 'https://image.tmdb.org/t/p/w600_' + element.poster_path;
+        //         }
+
+        //         return 'foto';
+        //     },
+        // }
 }
 //       data(){
 //         return{
