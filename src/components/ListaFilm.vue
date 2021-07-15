@@ -4,16 +4,29 @@
 
 
 
-<div>
+<div class="container-lista">
    
     
+ <div class="copertina">
+     <div class="sparisci" >
+        <img class="foto-film"  v-if="info.poster_path != null" :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt=""> 
+             <div  v-else>
+        <img class="netflix" src="@/assets/net.png" alt="">
 
-    
-        
-         <h2 class="titolo"> Title: {{info.title || info.name}}</h2>
+   </div>
+   
+     
+  
+
+     </div>
+   
+  
+      <div class="descrizione">
+             <h2 class="titolo">  {{info.title || info.name}}</h2>
     <ul>
-        <li> Oiginal title: {{info.original_title|| info.original_name}}</li>
-         <li>{{info.original_language}}</li> 
+        <li class="original-title"> Oiginal title: {{info.original_title|| info.original_name}}</li>
+        <li> vote:  {{info.vote_average}}</li>
+         
          <div class="bandiere" v-if="flags.includes(info.original_language)">
 
 
@@ -24,19 +37,17 @@
              {{info.original_language}}
 
          </div>
-         <li>
-
-           <img :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt=""> 
-                
-        </li>
-
-          
-        <!-- <img src="https://www.countryflags.io/us/flat/64.png" >  -->
-        <li> Vote: {{info.vote_average}}</li>
-    </ul>
-    <ul>
+         
         
     </ul>
+
+    </div>
+
+</div>
+ 
+        
+    
+    
 
     
     
@@ -125,14 +136,78 @@ export default {
 
 
 <style lang="scss" scoped>
+.copertina{
+    position:relative;
+    height:280px;
+    
+    .foto-film{
+        height:300px;
+        width: 80%;
+        height:90%;
+    }
+    
+}
+
+.netflix{
+    height: 300px;
+     width:200px;
+}
+
+.container-lista{
+    height:500px;
+  text-align: center;
+   
+    width:calc(100% / 6 );
+    
+    float:left;
+      
+   
+    .descrizione{
+        position: absolute;
+        top:2%;
+        color:white;
+       
+      
+        
+    }
+    
+}
 .titolo{
-    margin-top:90px;
+    width:70%;
+    font-size:18px;
+    margin:10px 0;
+    margin-left: 20px;
+    margin:auto;
+   
+}
+.original-title{
+    width:50%;
+    font-size:12px;
+    margin:10px 0;
+    
 }
 .bandiere img{
-    width:150px;
+    width:80px;
+    margin-top:10px ;
+    
 }
 .flags{
     width:150px;
 }
+ul li{
+    
+}
+.copertina :hover{
+     img{
+     display:none;
+}
+}
+  .foto-film:hover{
+    
+       
+    } 
+ 
+
+
 
 </style>

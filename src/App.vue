@@ -30,8 +30,17 @@ export default {
 </script>
 
 <style lang="scss">
+html{
+  background-color: black;;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  margin:0;
+  padding:0;
+  background-color: black;
+  width:100%;
+  
  
  
 }

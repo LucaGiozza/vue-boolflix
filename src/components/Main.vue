@@ -8,7 +8,7 @@
         <ListaFilm v-for="film in filmsArray" :key="film.id" :info="film"/>
     </div>
     <div>
-        <h2>Serie tv in lista:</h2>
+         <h2>Serie tv in lista:</h2> 
         <ListaFilm v-for="serieTv in tvArray" :key="serieTv.id" :info="serieTv"/>
         
 
@@ -149,6 +149,15 @@ export default {
 <style lang="scss" scoped>
 h2{
     color:red;
+    width:300px;
+    padding:22px;
+    font-size:30px;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    background-color: black;
 }
 
 </style>
