@@ -165,7 +165,7 @@ export default {
     .descrizione{
         position: absolute;
         top:2%;
-        color:white;
+        color:red;
        
       
         
@@ -178,6 +178,8 @@ export default {
     margin:10px 0;
     margin-left: 20px;
     margin:auto;
+    
+    
    
 }
 .original-title{
@@ -188,7 +190,7 @@ export default {
 }
 .bandiere img{
     width:80px;
-    margin-top:10px ;
+    margin-top:20px ;
     
 }
 .flags{
@@ -198,14 +200,20 @@ ul li{
     
 }
 .copertina :hover{
-     img{
-     display:none;
+      img{
+    //  display:none;
+    position:absolute;
+
+     left:-9999px;
+ 
+
 }
+
+
+
+
 }
-  .foto-film:hover{
-    
-       
-    } 
+  
  
 
 

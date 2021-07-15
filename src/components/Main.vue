@@ -4,6 +4,7 @@
     <Ricerca @search="ricercaFilm" />
 
     <div>
+        <p>Hover on flag to see the info</p>
         <h2>Film in lista :</h2>
         <ListaFilm v-for="film in filmsArray" :key="film.id" :info="film"/>
     </div>
@@ -158,6 +159,9 @@ h2{
     padding:0;
     box-sizing:border-box;
     background-color: black;
+}
+p{
+    color:red;
 }
 
 </style>
