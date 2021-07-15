@@ -25,8 +25,9 @@
 
          </div>
          <li>
-            
-               {{info.poster_path}} 
+
+           <img :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt=""> 
+                
         </li>
 
           

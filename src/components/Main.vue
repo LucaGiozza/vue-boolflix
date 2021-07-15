@@ -51,7 +51,7 @@ export default {
       return {
           apiUrl:'https://api.themoviedb.org/3/search/movie',
           apiTvUrl:'https://api.themoviedb.org/3/search/tv',
-           copertinaApiUrl:'https://image.tmdb.org/t/p/w342/dOsASSkNxUjtEp47eSDNazDPDPa.jpg',
+           
           
 
           apiKey: 'cabe8922195f2ff0cfd386b87a764c5b',
@@ -102,13 +102,13 @@ export default {
            .all([
                axios.get(this.apiUrl, request),
                axios.get(this. apiTvUrl, request),
-               axios.get(this.copertinaApiUrl, request)
+               
            ])
 
-           .then(axios.spread((responseFilm, responseTv, responseCopertina) => {
+           .then(axios.spread((responseFilm, responseTv,) => {
                this.filmsArray= responseFilm.data.results;
                this.tvArray= responseTv.data.results;
-               this.copertinaArray = responseCopertina.data.results;
+               
             //    console.log(this.tvArray)
 
 
