@@ -34,7 +34,8 @@
 
      
 
-    <Animazione :details="film"  />
+     <Animazione  /> 
+     <!-- :details="film"  -->
 
 
 </div>
@@ -43,13 +44,13 @@
 
 <script>
 // import axios from 'axios';
-import Animazione from '@/components/Animazione.vue'
+ import Animazione from '@/components/Animazione.vue'
 
 export default {
     name: 'ListaFilm',
     props: ['info'],
     components :{
-        Animazione
+         Animazione
 
     },
     data(){

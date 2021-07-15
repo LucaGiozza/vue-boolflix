@@ -1,6 +1,6 @@
 <template>
 <div class="main">
-    <!-- <p>{{campoRicerca}}</p> -->
+    
     <Ricerca @search="ricercaFilm" />
 
     <div>
@@ -8,14 +8,14 @@
         <ListaFilm v-for="film in filmsArray" :key="film.id" :info="film"/>
     </div>
     <div>
-        <h4>Serie tv in lista:</h4>
+        <h2>Serie tv in lista:</h2>
         <ListaFilm v-for="serieTv in tvArray" :key="serieTv.id" :info="serieTv"/>
 
     </div>
 
     
     
-    <ListaSerie />
+    
 
 </div>
   
@@ -27,15 +27,15 @@ import axios from 'axios';
 
 import Ricerca from '@/components/Ricerca.vue';
 import ListaFilm from '@/components/ListaFilm.vue';
-import ListaSerie from '@/components/ListaSerie.vue';
+
 export default {
-    name: 'main',
+    name: 'Main',
   
    
     components: {
        Ricerca,
-       ListaFilm,
-       ListaSerie
+       ListaFilm
+      
   },
  
   data(){
@@ -44,13 +44,13 @@ export default {
           apiTvUrl:'https://api.themoviedb.org/3/search/tv',
           apiKey: 'cabe8922195f2ff0cfd386b87a764c5b',
           language:'it-IT',
-           listaFilms : '',
-           listaSeries:'',
+        //    listaFilms : '',
+        //    listaSeries:'',
           
            searchText :'',
-           searchTextTv: '',
+        //    searchTextTv: '',
            filmsArray: '',
-           TvArray: ''
+           tvArray: '',
          
       }
       
@@ -132,5 +132,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h2{
+    color:red;
+}
 
 </style>

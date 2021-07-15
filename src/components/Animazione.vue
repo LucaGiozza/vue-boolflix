@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <!-- <div>
         <img  class="fotografie" :src="details.poster" :alt="details.title">
     <h3 class="titolo">{{details.title}}</h3>
     
@@ -8,7 +8,7 @@
 
     </div>
    
-  
+   -->
 
   </div>
 
@@ -17,7 +17,7 @@
 <script>
 export default {
 name: 'Animazione',
-props:["details"]
+// props:["details"]
 }
 </script>
 

@@ -7,7 +7,8 @@
 
     <main>
 
-      <Main  :films="filmsArray" :tv="tvArray" />
+      <Main />
+      <!-- :films="filmsArray"  -->
 
     </main>
     

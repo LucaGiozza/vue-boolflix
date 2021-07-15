@@ -3,7 +3,7 @@
 
     <div>
         <input class=" casella-ricerca" type="text" 
-        placeholder="Ricerca film" v-model="inputText" >
+        placeholder="Ricerca film o Serie tv" v-model="inputText" >
     </div>
     <div>
         <button  type="submit" @click.prevent="$emit('search',inputText)"  >Search</button>
